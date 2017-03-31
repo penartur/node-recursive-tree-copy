@@ -1,10 +1,12 @@
 {
   "name": "recursive-tree-copy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Recursively copies tree structure between different source and target implementations (e.g. filesystem to git)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "./node_modules/.bin/tsc -p . --noEmitOnError --declaration",
+    "pretest": "./node_modules/.bin/tsc -p . --noEmit",
+    "test": "./node_modules/.bin/tslint --config tslint.json --project tsconfig.json --type-check"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,12 @@
   },
   "dependencies": {
     "async": "~0.9.0"
+  },
+  "devDependencies": {
+    "@types/async": "^2.0.40",
+    "@types/node": "^7.0.12",
+    "tslint": "^5.0.0",
+    "tslint-eslint-rules": "^3.5.1",
+    "typescript": "^2.2.2"
   }
 }
